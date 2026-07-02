@@ -55,7 +55,7 @@ const Footer = ({ darkMode }) => {
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold mb-3">
               <span className="bg-linear-to-r from-purple-500 via-fuchsia-500 to-violet-500 bg-clip-text text-transparent">
-                Muhammad Fardan Bachtiar
+                Draf
               </span>
             </h3>
             <p className="text-sm leading-relaxed max-w-xs mx-auto md:mx-0" style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>
