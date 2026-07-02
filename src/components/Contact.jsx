@@ -63,7 +63,6 @@ const Contact = ({ darkMode }) => {
     <section
       id="contact"
       style={{
-        backgroundColor: darkMode ? '#111827' : '#f9fafb',
         backgroundImage: `radial-gradient(${gridColor} 1px, transparent 1px)`,
         backgroundSize: '28px 28px',
       }}
