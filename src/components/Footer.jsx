@@ -107,7 +107,7 @@ const Footer = ({ darkMode }) => {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-sm" style={{ color: darkMode ? '#6b7280' : '#9ca3af' }}>
-          <p>&copy; {new Date().getFullYear()} Muhammad Fardan Bachtiar. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Frdnbcthr. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
             Dibuat dengan <Heart className="w-3.5 h-3.5 text-purple-500 fill-purple-500 animate-pulse" /> menggunakan React & Tailwind
           </p>
