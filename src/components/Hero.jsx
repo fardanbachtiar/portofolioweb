@@ -9,8 +9,8 @@ import { DownloadIcon, Mail, Sparkles } from 'lucide-react'
 
 const Hero = ({ darkMode }) => {
     const socialIcons = [
-        { icon: instagram, alt: 'Instagram', href: '#' },
-        { icon: github, alt: 'GitHub', href: '#' },
+        { icon: instagram, alt: 'Instagram', href: 'https://www.instagram.com/frdnbcthr_?igsh=MTR2NzJ0MGx3dTY2Mw%3D%3D&utm_source=qr' },
+        { icon: github, alt: 'GitHub', href: 'https://github.com/fardanbachtiar' },
         { icon: linkedin, alt: 'LinkedIn', href: '#' },
         { icon: tiktok, alt: 'TikTok', href: '#' },
     ];
@@ -119,7 +119,7 @@ const Hero = ({ darkMode }) => {
                                 data-aos='fade-up'
                                 data-aos-delay='700'
                             >
-                                <a href={CV} download className='w-full sm:w-auto group'>
+                                <a download className='w-full sm:w-auto group'>
                                     <button className='relative overflow-hidden w-full sm:w-auto inline-flex items-center justify-center text-white bg-linear-to-r from-purple-500 to-violet-500 border-0 py-3 px-6 sm:px-8 hover:shadow-[0_0_40px_rgb(138,43,226,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2'>
                                         <span className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/25 to-transparent' />
                                         <DownloadIcon className='w-4 h-4 sm:w-5 mr-2 relative group-hover:-translate-y-0.5 transition-transform duration-300' />
