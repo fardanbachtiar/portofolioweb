@@ -109,7 +109,7 @@ const Hero = ({ darkMode }) => {
                         <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg ${theme.textSecondary}`}
                             data-aos='fade-up'
                             data-aos-delay='600'>
-                            Hallo saya Muhammad Fardan Bachtiar saya merupakan ini merupakan
+                            Hallo saya Fardan saya merupakan ini merupakan
                             website portofolio saya, yang saya buat sendiri. Terima kasih
                             semoga anda bisa menikmati tampilan dari UI/UX Desain yang saya buat.
                         </p>
