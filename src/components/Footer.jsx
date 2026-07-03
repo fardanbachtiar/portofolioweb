@@ -93,7 +93,7 @@ const Footer = ({ darkMode }) => {
             </h4>
             <a href="mailto:fardan@example.com" className="inline-flex items-center gap-2 text-sm mb-4 hover:text-purple-400 transition-colors duration-300" style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>
               <Mail className="w-4 h-4" />
-              gantengnadrag@gmail.com
+              exampl@gmail.com
             </a>
             <div>
               <a href="#contact" className="inline-block group">

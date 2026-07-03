@@ -52,7 +52,7 @@ const Contact = ({ darkMode }) => {
   const gridColor = darkMode ? 'rgba(168,85,247,0.15)' : 'rgba(139,92,246,0.12)'
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'gantengnadrag@gmail.com', action: handleCopyEmail, hint: copied ? 'Tersalin!' : 'Klik untuk salin' },
+    { icon: Mail, label: 'Email', value: 'example@gmail.com', action: handleCopyEmail, hint: copied ? 'Tersalin!' : 'Klik untuk salin' },
     { icon: Phone, label: 'Telepon', value: '+62 857 1387 0469', href: 'tel:+6285713870469', hint: 'Klik untuk telepon' },
     { icon: MapPin, label: 'Lokasi', value: 'Daerah Istimewa Yogyakarta, Indonesia', href: 'https://maps.google.com/?q=Yogyakarta', hint: 'Klik untuk buka peta' },
   ]
