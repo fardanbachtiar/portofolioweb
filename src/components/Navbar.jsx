@@ -14,6 +14,7 @@ const Navbar = ({darkMode, toggleDarkMode}) => {
         { name: 'About', link: '#about' },
         { name: 'Skills', link: '#skills' },
         { name: 'Project', link: '#project' },
+        { name: 'Sertifikasi', link: '#sertifikasi' },
         { name: 'Contact', link: '#contact' },
     ];
 

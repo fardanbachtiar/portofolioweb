@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import instagram from '../assets/instagram.png'
 import github from '../assets/github.png'
 import linkedin from '../assets/linkedin.png'
-import tiktok from '../assets/tiktok.png'
+import vercel from '../assets/vercel.png'
 import { ArrowUp, Heart, Mail } from 'lucide-react'
 
 const Footer = ({ darkMode }) => {
@@ -19,10 +19,10 @@ const Footer = ({ darkMode }) => {
   }
 
   const socialIcons = [
-    { icon: instagram, alt: 'Instagram', href: '#' },
-    { icon: github, alt: 'GitHub', href: '#' },
+    { icon: instagram, alt: 'Instagram', href: 'https://www.instagram.com/frdnbcthr_?igsh=MTR2NzJ0MGx3dTY2Mw%3D%3D&utm_source=qr' },
+    { icon: github, alt: 'GitHub', href: 'https://github.com/fardanbachtiar' },
     { icon: linkedin, alt: 'LinkedIn', href: '#' },
-    { icon: tiktok, alt: 'TikTok', href: '#' },
+    { icon: vercel, alt: 'vercel', href: 'https://vercel.com/fardanbachtiars-projects' },
   ]
 
   const quickLinks = [
@@ -30,6 +30,7 @@ const Footer = ({ darkMode }) => {
     { label: 'Tentang', href: '#about' },
     { label: 'Skills', href: '#skills' },
     { label: 'Project', href: '#project' },
+    { label: 'Sertifikasi', href: '#sertifikasi' },
     { label: 'Kontak', href: '#contact' },
   ]
 
@@ -93,7 +94,7 @@ const Footer = ({ darkMode }) => {
             </h4>
             <a href="mailto:fardan@example.com" className="inline-flex items-center gap-2 text-sm mb-4 hover:text-purple-400 transition-colors duration-300" style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>
               <Mail className="w-4 h-4" />
-              exampl@gmail.com
+              gantengnadragl@gmail.com
             </a>
             <div>
               <a href="#contact" className="inline-block group">

@@ -6,6 +6,7 @@ import Hero from "./components/Hero"
 import About from "./components/About"
 import Skills from "./components/Skills"
 import Project from "./components/Project"
+import Sertifikasi from "./components/Sertifikasi"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 
@@ -41,6 +42,7 @@ const App = () => {
       <About darkMode={darkMode} />
       <Skills darkMode={darkMode} />
       <Project darkMode={darkMode} />
+      <Sertifikasi darkMode={darkMode} />
       <Contact darkMode={darkMode} />
       <Footer darkMode={darkMode} />
     </div>

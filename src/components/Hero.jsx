@@ -101,7 +101,7 @@ const Hero = ({ darkMode }) => {
                             data-aos-delay='500'>
                             Hi, Aku
                             <span className='bg-linear-to-r from-purple-500 via-fuchsia-500 to-violet-500 bg-clip-text text-transparent'>
-                                Fardan
+                                Muhammad Fardan Bachtiar
                             </span>
                             <span className='inline-block w-0.75 h-8 sm:h-10 bg-purple-500 animate-pulse' />
                         </h1>
@@ -109,9 +109,8 @@ const Hero = ({ darkMode }) => {
                         <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg ${theme.textSecondary}`}
                             data-aos='fade-up'
                             data-aos-delay='600'>
-                            Hallo saya Fardan saya merupakan ini merupakan
-                            website portofolio saya, yang saya buat sendiri. Terima kasih
-                            semoga anda bisa menikmati tampilan dari UI/UX Desain yang saya buat.
+                            Hallo perkenalkan saya Muhammad Fardan Bachtiar Saya merupakan Lulusan D3 Teknik Informatika Universitas Amikom Yogyakarta.
+                            Ini merupakan website portofolio yang saya buat.
                         </p>
 
                         <div className='w-full pt-4 sm:pt-6'>
@@ -119,7 +118,7 @@ const Hero = ({ darkMode }) => {
                                 data-aos='fade-up'
                                 data-aos-delay='700'
                             >
-                                <a download className='w-full sm:w-auto group'>
+                                <a href={CV} download="CV-Muhammad-Fardan-Bachtiar.pdf" className='w-full sm:w-auto group'>
                                     <button className='relative overflow-hidden w-full sm:w-auto inline-flex items-center justify-center text-white bg-linear-to-r from-purple-500 to-violet-500 border-0 py-3 px-6 sm:px-8 hover:shadow-[0_0_40px_rgb(138,43,226,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2'>
                                         <span className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/25 to-transparent' />
                                         <DownloadIcon className='w-4 h-4 sm:w-5 mr-2 relative group-hover:-translate-y-0.5 transition-transform duration-300' />

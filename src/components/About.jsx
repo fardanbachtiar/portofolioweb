@@ -3,9 +3,9 @@ import { ArrowRight, GraduationCap, Briefcase, FolderGit2 } from 'lucide-react'
 
 const About = ({ darkMode }) => {
     const stats = [
-        { value: '5+', label: 'Education', icon: GraduationCap },
-        { value: '2+', label: 'Years Experience', icon: Briefcase },
-        { value: '50+', label: 'Project', icon: FolderGit2 },
+        { value: '5+', label: 'Pendidikan', icon: GraduationCap },
+        { value: '1+', label: 'Years Experience', icon: Briefcase },
+        { value: '9', label: 'Project', icon: FolderGit2 },
     ];
 
     const theme = darkMode
@@ -81,7 +81,7 @@ const About = ({ darkMode }) => {
                         data-aos='fade-up'
                         data-aos-delay='500'
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo vel excepturi quae tempore, quos a, saepe esse dignissimos quisquam minus, laborum iste quibusdam! Et, quisquam exercitationem! Reiciendis incidunt fuga delectus.
+                        Saya merupakan seorang fresh graduate lulusan Universitas Amikom Yogyakarta dengan jurusan yang saya tempuh yaitu D3 Teknik Informatika, saya lulus dengan nilai IPK 3,86.  saya sekarang tinggal di Yogyakarta bersama kedua orang tua saya dan adik saya laki-laki.
                     </p>
 
                     <div className='flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-6 mb-6 sm:mb-8'>
@@ -101,18 +101,6 @@ const About = ({ darkMode }) => {
                             );
                         })}
                     </div>
-
-                    <a href='#projects' className='inline-block w-full sm:w-auto group'>
-                        <button
-                            className={`relative overflow-hidden w-full sm:w-auto border-2 inline-flex items-center justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_rgb(138,43,226,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 ${theme.button}`}
-                            data-aos='fade-up'
-                            data-aos-delay='800'
-                        >
-                            <span className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-purple-400/20 to-transparent' />
-                            <span className='relative'>Learn More</span>
-                            <ArrowRight className='relative w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300' />
-                        </button>
-                    </a>
                 </article>
             </div>
         </section>

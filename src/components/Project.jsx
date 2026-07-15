@@ -1,15 +1,71 @@
-import { FaExternalLinkAlt, FaGithub, FaEye } from 'react-icons/fa'
+import { useState } from 'react'
+import { FaExternalLinkAlt, FaGithub, FaEye, FaTimes } from 'react-icons/fa'
 import project1 from '../assets/project1.png'
 import project2 from '../assets/project2.png'
 import project3 from '../assets/project3.png'
 import project4 from '../assets/project4.png'
+import project5 from '../assets/project5.png'
+import project6 from '../assets/project6.png'
+import project7 from '../assets/project7.png'
+import project8 from '../assets/project8.png'
+import project9 from '../assets/project9.png'
+
+function PreviewModal({ project, onClose, darkMode }) {
+  if (!project) return null
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+      onClick={onClose}
+    >
+      <div
+        style={{
+          background: darkMode ? 'linear-gradient(to bottom right, #1f2937, #111827)' : 'linear-gradient(to bottom right, #ffffff, #f9fafb)',
+          borderColor: darkMode ? '#374151' : '#e5e7eb',
+        }}
+        className="relative max-h-[85vh] w-full max-w-2xl overflow-hidden rounded-2xl border shadow-2xl shadow-purple-500/20"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Tutup"
+          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-purple-500/60"
+        >
+          <FaTimes />
+        </button>
+
+        <img
+          src={project.image}
+          alt={project.title}
+          className="max-h-[60vh] w-full object-contain bg-black/20"
+        />
+
+        <div className="p-5">
+          <h3 className="text-lg font-bold mb-2" style={{ color: darkMode ? 'white' : '#1f2937' }}>
+            {project.title}
+          </h3>
+          <p className="text-sm leading-relaxed" style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>
+            {project.desc}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const Project = ({ darkMode }) => {
+  const [activeProject, setActiveProject] = useState(null)
+
   const projects = [
-    { id: 1, title: 'Desain Poster', desc: 'Lorem ipsum dolor sit amet consectetur adipisicing', image: project1, tags: ['Adobe Photoshop', 'Canva', 'Gemini AI'] },
-    { id: 2, title: 'UI/UX Klinik Gigi', desc: 'Lorem ipsum dolor sit amet consectetur adipisicing', image: project2, tags: ['Adobe Photoshop', 'Figma', 'Gemini AI'] },
-    { id: 3, title: 'Anime Website', desc: 'Lorem ipsum dolor sit amet consectetur adipisicing', image: project3, tags: ['HTML', 'CSS', 'Javascript'] },
-    { id: 4, title: 'E-commerce UMKM', desc: 'Lorem ipsum dolor sit amet consectetur adipisicing', image: project4, tags: ['PHP', 'Laravel', 'HTML', 'CSS', 'Javascript'] },
+    { id: 1, title: 'Desain Poster', desc: 'Desain poster bertema Jujutsu Kaisen dengan gaya majalah Jepang (zine), menampilkan karakter Dante Zogratis, Yuta Okkutsu, dan Maki lengkap dengan tipografi khas komik.', image: project1, tags: ['Adobe Photoshop', 'Canva', 'Gemini AI'] },
+    { id: 2, title: 'UI/UX Klinik Gigi', desc: 'Desain UI/UX aplikasi mobile untuk klinik gigi Dental Jogja, mencakup fitur booking janji temu, daftar layanan perawatan, profil dokter, galeri klinik, dan testimoni pasien.', image: project2, tags: ['Adobe Photoshop', 'Figma', 'Gemini AI'] },
+    { id: 3, title: 'Anime Website', desc: 'Landing page bertema anime Jujutsu Kaisen dengan nuansa dark dan neon, menampilkan hero section trailer, navigasi menu, dan visual karakter yang dramatis.', image: project3, tags: ['HTML', 'CSS', 'Javascript'] },
+    { id: 4, title: 'E-commerce UMKM', desc: 'Desain UI toko online MARJUL untuk pelaku UMKM, meliputi halaman beranda, keranjang belanja, pembayaran, detail pesanan, pengelolaan profil, hingga daftar produk.', image: project4, tags: ['PHP', 'Laravel', 'HTML', 'CSS', 'Javascript'] },
+    { id: 5, title: 'Nara Kopi Website', desc: 'Desain UI website/aplikasi Nara Coffee & Pastry, meliputi newsletter promo, testimoni pelanggan, kartu stempel digital, menu favorit, dan halaman pemesanan kopi online.', image: project5, tags: ['Reactjs', 'Tailwindcss', 'Figma', 'Photoshop', 'Javascript'] },
+    { id: 6, title: 'History Jawa Website', desc: 'Desain website History Jawa untuk mengenal sejarah dan budaya Jawa, mencakup beranda, artikel terbaru, kerajaan besar di Jawa, tokoh sejarah, dan newsletter berlangganan.', image: project6, tags: ['Reactjs', 'Tailwindcss', 'Figma', 'Photoshop', 'Javascript'] },
+    { id: 7, title: 'Desain Feed Instagram Badal Umroh', desc: 'Desain konten edukasi Instagram untuk Haneen Badal Umrah, membahas adab berbakti kepada orang tua, sejarah Mihrab As-Sunnah, fakta Masjidil Haram, hingga ajakan layanan badal umrah.', image: project7, tags: ['Adobe Photoshop', 'Canva', 'Gemini AI'] },
+    { id: 8, title: 'Desain Feed Instagram Zenfit', desc: 'Desain konten edukasi Instagram untuk ZenFit, membahas kebiasaan menjaga kesehatan lambung, tips berbuka puasa yang sehat, penyebab lambung bocor, hingga tanda maag berubah jadi GERD.', image: project8, tags: ['Adobe Photoshop', 'Canva', 'Gemini AI'] },
+    { id: 9, title: 'Redesain Website PasarPolis', desc: 'Redesain UI PasarPolis Employee Benefit, mencakup alur pembuatan profil perusahaan mulai dari alamat, akun bank, upload dokumen, notifikasi berhasil, hingga halaman fitur TAP Health dan footer informasi perusahaan.', image: project9, tags: ['Figma', 'Canva', 'Gemini AI'] },
   ]
 
   const tagColors = {
@@ -22,6 +78,9 @@ const Project = ({ darkMode }) => {
     'Javascript': { bg: '#F7DF1E20', text: '#eab308' },
     'PHP': { bg: '#777BB420', text: '#818cf8' },
     'Laravel': { bg: '#FF291620', text: '#f87171' },
+    'Reactjs': { bg: '#00D8FF', text: '#ffff' },
+    'Tailwindcss': { bg: '#6d28d9', text: '#a5f3fc' },
+
   }
   
   const theme = darkMode
@@ -81,10 +140,14 @@ const Project = ({ darkMode }) => {
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
 
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <a href="#" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 text-gray-900 text-sm font-semibold translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <button
+                    type="button"
+                    onClick={() => setActiveProject(project)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 text-gray-900 text-sm font-semibold translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer hover:bg-white"
+                  >
                     <FaEye />
                     Quick View
-                  </a>
+                  </button>
                 </div>
 
                 <span className="absolute top-3 left-3 w-8 h-8 flex items-center justify-center rounded-full text-xs font-bold text-white bg-black/40 backdrop-blur-sm">
@@ -139,6 +202,8 @@ const Project = ({ darkMode }) => {
           </a>
         </div>
       </div>
+
+      <PreviewModal project={activeProject} onClose={() => setActiveProject(null)} darkMode={darkMode} />
     </section>
   )
 }

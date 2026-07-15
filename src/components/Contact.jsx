@@ -1,11 +1,15 @@
 import { useState, useRef } from 'react'
 import kontakimg from '../assets/kontak.png'
-import { Mail, Phone, MapPin, Send, Check, Copy, Loader2 } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Check, Copy, Loader2, AlertCircle } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'ISI_SERVICE_ID'
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'ISI_TEMPLATE_ID'
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'ISI_PUBLIC_KEY'
 
 const Contact = ({ darkMode }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [focused, setFocused] = useState(null)
-  const [status, setStatus] = useState('idle') // idle | sending | sent
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [copied, setCopied] = useState(false)
 
   // State untuk efek 3D tilt pada gambar
@@ -34,13 +38,41 @@ const Contact = ({ darkMode }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setStatus('sending')
-    setTimeout(() => {
-      setStatus('sent')
-      setTimeout(() => {
-        setStatus('idle')
-        setFormData({ name: '', email: '', message: '' })
-      }, 2500)
-    }, 1200)
+
+    // Log payload yang akan dikirim, untuk verifikasi data & ENV terisi dengan benar
+    console.log('📤 Mengirim email dengan data:', {
+      serviceId: EMAILJS_SERVICE_ID,
+      templateId: EMAILJS_TEMPLATE_ID,
+      publicKey: EMAILJS_PUBLIC_KEY,
+      formData,
+    })
+
+    // Nama field di sini harus cocok dengan variabel {{name}} {{email}}
+    // {{message}} di template EmailJS Anda.
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      .then((response) => {
+        console.log('✅ EmailJS SUKSES:', response.status, response.text)
+        setStatus('sent')
+        setTimeout(() => {
+          setStatus('idle')
+          setFormData({ name: '', email: '', message: '' })
+        }, 2500)
+      })
+      .catch((err) => {
+        console.error('❌ EmailJS GAGAL:', err.status, err.text, err)
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 3000)
+      })
   }
 
   const handleCopyEmail = () => {
@@ -52,7 +84,7 @@ const Contact = ({ darkMode }) => {
   const gridColor = darkMode ? 'rgba(168,85,247,0.15)' : 'rgba(139,92,246,0.12)'
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'example@gmail.com', action: handleCopyEmail, hint: copied ? 'Tersalin!' : 'Klik untuk salin' },
+    { icon: Mail, label: 'Email', value: 'gantengnadrag@gmail.com', action: handleCopyEmail, hint: copied ? 'Tersalin!' : 'Klik untuk salin' },
     { icon: Phone, label: 'Telepon', value: '+62 857 1387 0469', href: 'tel:+6285713870469', hint: 'Klik untuk telepon' },
     { icon: MapPin, label: 'Lokasi', value: 'Daerah Istimewa Yogyakarta, Indonesia', href: 'https://maps.google.com/?q=Yogyakarta', hint: 'Klik untuk buka peta' },
   ]
@@ -91,10 +123,6 @@ const Contact = ({ darkMode }) => {
               Touch
             </span>
           </h2>
-
-          <p className="text-base sm:text-lg max-w-xl mx-auto" style={{ color: darkMode ? '#d1d5db' : '#6b7280' }}>
-            Mari berbicara denganku! Aku terbuka untuk kolaborasi dan proyek baru.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center max-w-6xl mx-auto">
@@ -211,6 +239,19 @@ const Contact = ({ darkMode }) => {
                 </div>
                 <p className="font-semibold text-lg" style={{ color: darkMode ? 'white' : '#1f2937' }}>Pesan Terkirim!</p>
                 <p className="text-sm" style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>Terima kasih, aku akan segera membalas.</p>
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div
+                className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 backdrop-blur-md px-6 text-center"
+                style={{ backgroundColor: darkMode ? 'rgba(17,24,39,0.9)' : 'rgba(255,255,255,0.9)' }}
+              >
+                <div className="w-16 h-16 rounded-full bg-linear-to-br from-red-400 to-red-600 flex items-center justify-center">
+                  <AlertCircle className="w-8 h-8 text-white" />
+                </div>
+                <p className="font-semibold text-lg" style={{ color: darkMode ? 'white' : '#1f2937' }}>Gagal Mengirim</p>
+                <p className="text-sm" style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>Coba lagi atau hubungi lewat email langsung.</p>
               </div>
             )}
 
