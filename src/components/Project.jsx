@@ -116,7 +116,7 @@ const Project = ({ darkMode }) => {
           </h2>
 
           <p className="max-w-xl mx-auto" style={{ color: darkMode ? '#d1d5db' : '#6b7280' }}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Kumpulan Project yang telah saya buat.
           </p>
         </div>
 
